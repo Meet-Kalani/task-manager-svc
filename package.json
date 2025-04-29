@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:check:fix": "prettier --check . --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Meet Kalani",
@@ -18,6 +25,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^9.1.7",
+    "nodemon": "^3.1.10",
     "prettier": "^3.5.3"
   },
   "husky": {
@@ -31,5 +39,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

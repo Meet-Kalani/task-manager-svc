@@ -1,12 +1,54 @@
-const getAllTasks = (req, res, next) => {};
+const Task = require('../models/task');
 
-const getTaskById = (req, res, next) => {};
+const getAllTasks = async (req, res, next) => {
+  try {
+    const tasks = await Task.find();
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 
-const createTask = (req, res, next) => {};
+const getTaskById = async (req, res, next) => {
+  try {
+    const tasks = await Task.findById(req.params.id);
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 
-const updateTask = (req, res, next) => {};
+const createTask = async (req, res, next) => {
+  try {
+    const tasks = await Task.create(req.body);
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 
-const deleteTask = (req, res, next) => {};
+const updateTask = async (req, res, next) => {
+  try {
+    const tasks = await Task.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+const deleteTask = async (req, res, next) => {
+  try {
+    const tasks = await Task.findByIdAndDelete(req.params.id);
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 
 module.exports = {
   getAllTasks,

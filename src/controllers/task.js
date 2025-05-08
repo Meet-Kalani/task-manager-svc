@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError');
 const getAllTasks = async (req, res, next) => {
   try {
     const tasks = await Task.find();
-    if (!task) return next(new AppError('Task not found', 404));
+    if (!tasks) return next(new AppError('Task not found', 404));
     res.status(200).json(tasks);
   } catch (error) {
     next(error);

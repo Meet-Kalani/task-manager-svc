@@ -2,9 +2,16 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const privateKey = fs.readFileSync('./keys/private.key');
+const userValidator = require('../validators/user');
 
 const register = async (req, res, next) => {
   try {
+    const { error } = userValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
     const userExists = await User.findOne({ email: req.body.email });
 
     if (userExists) {
@@ -29,6 +36,12 @@ const register = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   try {
+    const { error } = userValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       return res

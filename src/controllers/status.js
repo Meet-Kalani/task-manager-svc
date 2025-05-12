@@ -1,5 +1,6 @@
 const Status = require('../models/status');
 const AppError = require('../utils/AppError');
+const statusValidator = require('../validators/status');
 
 const getAllStatuses = async (req, res, next) => {
   try {
@@ -23,6 +24,11 @@ const getStatusById = async (req, res, next) => {
 
 const createStatus = async (req, res, next) => {
   try {
+    const { error } = statusValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
     const statuses = await Status.create(req.body);
     res.status(200).json(statuses);
   } catch (error) {
@@ -32,6 +38,11 @@ const createStatus = async (req, res, next) => {
 
 const updateStatus = async (req, res, next) => {
   try {
+    const { error } = statusValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
     const statuses = await Status.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json(statuses);
   } catch (error) {

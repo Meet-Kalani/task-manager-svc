@@ -1,5 +1,6 @@
 const Task = require('../models/task');
 const AppError = require('../utils/AppError');
+const taskValidator = require('../validators/task');
 
 const getAllTasks = async (req, res, next) => {
   try {
@@ -23,6 +24,12 @@ const getTaskById = async (req, res, next) => {
 
 const createTask = async (req, res, next) => {
   try {
+    const { error } = taskValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
     const tasks = await Task.create(req.body);
     res.status(200).json(tasks);
   } catch (error) {
@@ -32,6 +39,12 @@ const createTask = async (req, res, next) => {
 
 const updateTask = async (req, res, next) => {
   try {
+    const { error } = taskValidator.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
     const tasks = await Task.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json(tasks);
   } catch (error) {

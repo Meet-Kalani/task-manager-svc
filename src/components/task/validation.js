@@ -21,20 +21,13 @@ const taskValidationSchema = Joi.object({
     'string.base': '"description" should be a type of text'
   }),
 
-  status: Joi.string()
-    .valid('Pending', 'In Progress', 'Completed', 'Archived')
-    .default('Pending')
-    .messages({
-      'any.only':
-        '"status" must be one of [Pending, In Progress, Completed, Archived]'
-    }),
+  status: Joi.array().items(Joi.string().custom(objectIdValidator)).messages({
+    'array.base': '"status" must be an array of status ObjectIds'
+  }),
 
-  priority: Joi.string()
-    .valid('Low', 'Medium', 'High', 'Extreme')
-    .default('Low')
-    .messages({
-      'any.only': '"priority" must be one of [Low, Medium, High, Extreme]'
-    }),
+  priority: Joi.array().items(Joi.string().custom(objectIdValidator)).messages({
+    'array.base': '"priority" must be an array of priority ObjectIds'
+  }),
 
   due_date: Joi.date().optional().messages({
     'date.base': '"due_date" must be a valid date'

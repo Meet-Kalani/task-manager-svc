@@ -9,18 +9,19 @@ const taskSchema = new Schema(
     description: {
       type: String
     },
-    status: {
-      type: String,
-      enum: ['Pending', 'In Progress', 'Completed', 'Archived'],
-      default: 'Pending',
-      required: true
-    },
-    priority: {
-      type: String,
-      enum: ['Low', 'Medium', 'High', 'Extreme'],
-      default: 'Low',
-      required: true
-    },
+    status: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Status'
+      }
+    ],
+    priority: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Priority'
+      }
+    ],
+
     due_date: {
       type: Date
     },

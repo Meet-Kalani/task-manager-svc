@@ -1,8 +1,8 @@
-const User = require('../models/user');
+const User = require('./model');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const privateKey = fs.readFileSync('./keys/private.key');
-const userValidator = require('../validators/user');
+const userValidator = require('./validation');
 
 const register = async (req, res, next) => {
   try {

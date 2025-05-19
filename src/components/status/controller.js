@@ -1,6 +1,6 @@
-const Status = require('../models/status');
-const AppError = require('../utils/AppError');
-const statusValidator = require('../validators/status');
+const Status = require('./model');
+const AppError = require('../../utils/AppError');
+const statusValidator = require('./validation');
 
 const getAllStatuses = async (req, res, next) => {
   try {

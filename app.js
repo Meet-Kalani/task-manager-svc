@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 
 const bodyParser = require('body-parser');
-const taskRoutes = require('./src/routes/task');
-const userRoutes = require('./src/routes/user');
-const priorityRoutes = require('./src/routes/priority');
-const statusRoutes = require('./src/routes/status');
-const tagRoutes = require('./src/routes/tag');
+const taskRoutes = require('./src/components/task/route');
+const userRoutes = require('./src/components/user/route');
+const priorityRoutes = require('./src/components/priority/route');
+const statusRoutes = require('./src/components/status/route');
+const tagRoutes = require('./src/components/tag/route');
 const db = require('./src/utils/database');
 const errorHandler = require('./src/middlewares/errorHandler');
 const logger = require('./src/utils/logger');

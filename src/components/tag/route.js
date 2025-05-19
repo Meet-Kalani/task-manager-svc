@@ -7,7 +7,7 @@ const {
   createTag,
   updateTag,
   deleteTag
-} = require('../controllers/tag');
+} = require('./controller');
 
 router.get('/', getAllTags);
 router.get('/:id', getTagById);

@@ -7,8 +7,8 @@ const {
   createTask,
   updateTask,
   deleteTask
-} = require('../controllers/task');
-const auth = require('../middlewares/auth');
+} = require('./controller');
+const auth = require('../../middlewares/auth');
 
 router.use(auth);
 

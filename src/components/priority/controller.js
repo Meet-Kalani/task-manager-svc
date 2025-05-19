@@ -1,6 +1,6 @@
-const Priority = require('../models/priority');
-const AppError = require('../utils/AppError');
-const priorityValidator = require('../validators/priority');
+const Priority = require('./model');
+const AppError = require('../../utils/AppError');
+const priorityValidator = require('./validation');
 
 const getAllPriorities = async (req, res, next) => {
   try {

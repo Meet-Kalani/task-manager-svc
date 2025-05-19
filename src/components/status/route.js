@@ -7,7 +7,7 @@ const {
   createStatus,
   updateStatus,
   deleteStatus
-} = require('../controllers/status');
+} = require('./controller');
 
 router.get('/', getAllStatuses);
 router.get('/:id', getStatusById);

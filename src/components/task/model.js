@@ -24,18 +24,22 @@ const taskSchema = new Schema(
     due_date: {
       type: Date
     },
-    assigned_to: [{
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }],
+    assigned_to: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ],
     created_by: {
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-    tags: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Tag'
-    }]
+    tags: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Tag'
+      }
+    ]
   },
   {
     timestamps: true

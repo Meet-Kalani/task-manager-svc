@@ -7,7 +7,7 @@ const {
   createPriority,
   updatePriority,
   deletePriority
-} = require('../controllers/priority');
+} = require('./controller');
 
 router.get('/', getAllPriorities);
 router.get('/:id', getPriorityById);

@@ -1,6 +1,6 @@
-const Task = require('../models/task');
-const AppError = require('../utils/AppError');
-const taskValidator = require('../validators/task');
+const Task = require('./model');
+const AppError = require('../../utils/AppError');
+const taskValidator = require('./validation');
 
 const getAllTasks = async (req, res, next) => {
   try {

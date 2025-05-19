@@ -1,6 +1,6 @@
-const Tag = require('../models/tag');
-const AppError = require('../utils/AppError');
-const tagValidator = require('../validators/tag');
+const Tag = require('./model');
+const AppError = require('../../utils/AppError');
+const tagValidator = require('./validation');
 
 const getAllTags = async (req, res, next) => {
   try {

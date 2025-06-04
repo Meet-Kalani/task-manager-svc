@@ -8,6 +8,9 @@ const {
   updateTag,
   deleteTag
 } = require('./controller');
+const auth = require('../../middlewares/auth');
+
+router.use(auth);
 
 router.get('/', getAllTags);
 router.get('/:id', getTagById);

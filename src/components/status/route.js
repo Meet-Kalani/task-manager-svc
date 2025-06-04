@@ -8,6 +8,9 @@ const {
   updateStatus,
   deleteStatus
 } = require('./controller');
+const auth = require('../../middlewares/auth');
+
+router.use(auth);
 
 router.get('/', getAllStatuses);
 router.get('/:id', getStatusById);

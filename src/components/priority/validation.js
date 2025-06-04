@@ -13,10 +13,6 @@ const priorityValidationSchema = Joi.object({
 
   weight: Joi.number().optional().messages({
     'number.base': '"weight" must be a number'
-  }),
-
-  labelColor: Joi.string().allow('').optional().messages({
-    'string.base': '"labelColor" should be a type of text'
   })
 });
 

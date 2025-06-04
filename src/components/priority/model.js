@@ -12,9 +12,6 @@ const prioritySchema = new Schema(
     weight: {
       type: Number
     },
-    labelColor: {
-      type: String
-    }
   },
   {
     timestamps: true

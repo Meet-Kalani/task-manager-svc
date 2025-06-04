@@ -9,10 +9,6 @@ const statusValidationSchema = Joi.object({
 
   description: Joi.string().allow('').optional().messages({
     'string.base': '"description" should be a type of text'
-  }),
-
-  labelColor: Joi.string().allow('').optional().messages({
-    'string.base': '"labelColor" should be a type of text'
   })
 });
 

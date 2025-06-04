@@ -8,6 +8,9 @@ const {
   updatePriority,
   deletePriority
 } = require('./controller');
+const auth = require('../../middlewares/auth');
+
+router.use(auth);
 
 router.get('/', getAllPriorities);
 router.get('/:id', getPriorityById);

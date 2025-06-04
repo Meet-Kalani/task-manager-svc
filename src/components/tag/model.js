@@ -8,9 +8,6 @@ const tagSchema = new Schema(
     },
     description: {
       type: String
-    },
-    labelColor: {
-      type: String
     }
   },
   {

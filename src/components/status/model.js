@@ -8,9 +8,6 @@ const statusSchema = new Schema(
     },
     description: {
       type: String
-    },
-    labelColor: {
-      type: String
     }
   },
   {

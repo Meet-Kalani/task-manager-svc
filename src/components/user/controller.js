@@ -2,8 +2,10 @@ const fs = require('fs');
 
 const jwt = require('jsonwebtoken');
 
-const User = require('./model');
+const sendResponse = require('../../utils/sendResponse');
+
 const userValidator = require('./validation');
+const User = require('./model');
 
 const privateKey = fs.readFileSync('./keys/private.key');
 
@@ -31,9 +33,9 @@ const register = async (req, res, next) => {
 
     const token = await jwt.sign(payload, privateKey, { algorithm: 'RS256' });
 
-    res.status(201).json({ token });
+    return sendResponse(res, 201, true, { token });
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
@@ -64,9 +66,9 @@ const login = async (req, res, next) => {
 
     const token = await jwt.sign(payload, privateKey, { algorithm: 'RS256' });
 
-    res.status(201).json({ token });
+    return sendResponse(res, 201, true, { token });
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 

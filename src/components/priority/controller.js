@@ -1,4 +1,5 @@
 const AppError = require('../../utils/AppError');
+const sendResponse = require('../../utils/sendResponse');
 
 const Priority = require('./model');
 const priorityValidator = require('./validation');
@@ -7,9 +8,9 @@ const getAllPriorities = async (req, res, next) => {
   try {
     const priorities = await Priority.find();
     if (!priorities) return next(new AppError('Priority not found', 404));
-    res.status(200).json(priorities);
+    return sendResponse(res, 200, true, priorities);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
@@ -17,9 +18,9 @@ const getPriorityById = async (req, res, next) => {
   try {
     const priority = await Priority.findById(req.params.id);
     if (!priority) return next(new AppError('Priority not found', 404));
-    res.status(200).json(priority);
+    return sendResponse(res, 200, true, priority);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
@@ -34,7 +35,7 @@ const createPriority = async (req, res, next) => {
     const priority = await Priority.create(req.body);
     res.status(200).json(priority);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
@@ -49,7 +50,7 @@ const updatePriority = async (req, res, next) => {
     const priority = await Priority.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json(priority);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 
@@ -58,7 +59,7 @@ const deletePriority = async (req, res, next) => {
     const priority = await Priority.findByIdAndDelete(req.params.id);
     res.status(200).json(priority);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
 

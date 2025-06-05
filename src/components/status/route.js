@@ -1,5 +1,8 @@
 const express = require('express');
+
 const router = express.Router();
+
+const auth = require('../../middlewares/auth');
 
 const {
   getAllStatuses,
@@ -8,7 +11,6 @@ const {
   updateStatus,
   deleteStatus
 } = require('./controller');
-const auth = require('../../middlewares/auth');
 
 router.use(auth);
 

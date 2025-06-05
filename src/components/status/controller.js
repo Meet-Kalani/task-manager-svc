@@ -1,5 +1,6 @@
-const Status = require('./model');
 const AppError = require('../../utils/AppError');
+
+const Status = require('./model');
 const statusValidator = require('./validation');
 
 const getAllStatuses = async (req, res, next) => {

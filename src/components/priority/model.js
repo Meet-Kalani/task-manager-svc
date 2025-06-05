@@ -11,7 +11,7 @@ const prioritySchema = new Schema(
     },
     weight: {
       type: Number
-    },
+    }
   },
   {
     timestamps: true

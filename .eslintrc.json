@@ -1,12 +1,38 @@
 {
-    "extends": ["airbnb-base", "prettier"],
-    "plugins": ["prettier"],
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "parserOptions": {
         "project": "./tsconfig.json"
     },
     "rules": {
-      "prettier/prettier": ["error"],
-      "import/extensions": ["error", "ignorePackages", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
-      "eslint-config-prettier": true
+        "prettier/prettier": ["error"],
+        "import/extensions": ["error", "ignorePackages", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "no-var": "error",
+        "prefer-const": "error",
+        "consistent-return": "off",
+        "no-underscore-dangle":"off",
+        "camelcase": ["error", { "properties": "never" }],
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-trailing-spaces": "error",
+        "no-param-reassign": "error",
+        "no-unused-expressions": "error",
+        "no-duplicate-imports": "error",
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+                "newlines-between": "always"
+            }
+        ],
+        "import/no-unresolved": "error",
+        "import/first": "error",
+        "import/no-duplicates": "error"
     }
 }

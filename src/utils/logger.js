@@ -18,9 +18,9 @@ winston.addColors(colors);
 
 const customFormat = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-  winston.format.printf(info => {
-    return `${info.timestamp} [${info.level}]: ${info.message}`;
-  })
+  winston.format.printf(
+    info => `${info.timestamp} [${info.level}]: ${info.message}`
+  )
 );
 
 const logger = winston.createLogger({
